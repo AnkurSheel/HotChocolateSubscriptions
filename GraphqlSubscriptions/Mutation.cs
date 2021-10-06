@@ -1,4 +1,5 @@
-﻿using HotChocolate.Types;
+﻿using HotChocolate.Subscriptions;
+using HotChocolate.Types;
 
 namespace GraphqlSubscriptions
 {
@@ -14,6 +15,7 @@ namespace GraphqlSubscriptions
                     {
                         var input = ctx.ArgumentValue<string>("payload");
 
+                        await ctx.Service<ITopicEventSender>().SendAsync("onPing", input);
                         return input;
                     });
         }
