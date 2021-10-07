@@ -18,7 +18,8 @@ namespace GraphqlSubscriptions
                 {
                     "localhost:6379"
                 },
-                User = "test"
+                User = "test",
+                ChannelPrefix = "graphql_subscriptions/"
             };
 
             services.AddGraphQLServer().AddQueryType<Query>().AddMutationType<Mutation>().AddSubscriptionType<Subscription>().AddRedisSubscriptions(_ => ConnectionMultiplexer.Connect(options));
