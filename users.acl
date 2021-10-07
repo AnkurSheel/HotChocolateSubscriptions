@@ -1,0 +1,3 @@
+user default off
+user test on nopass ~* &* +@all
+user admin on nopass ~* &* +@all

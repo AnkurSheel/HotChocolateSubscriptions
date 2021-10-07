@@ -1,0 +1,11 @@
+version: '3'
+services:
+  redis:
+    image: redis:6.2-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+      - ./users.acl:/usr/local/etc/redis/users.acl
+    container_name: redis-graphql
+    command: redis-server /usr/local/etc/redis/redis.conf
